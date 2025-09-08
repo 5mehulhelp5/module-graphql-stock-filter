@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mage2AU GraphQL Stock Filter Module
+ * GraphQL Area Dependency Injection Configuration
+ * 
+ * @category    Mage2AU
+ * @package     Mage2AU_GraphQLStockFilter
+ * @author      Mage2AU
+ * @copyright   Copyright (c) 2025 Mage2AU
+ * @license     MIT License
+ * @version     1.0.0
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- GraphQL-specific filter processor (used by SearchCriteriaProcessor) -->
+    <virtualType name="Magento\Catalog\Model\Api\SearchCriteria\CollectionProcessor\ProductFilterProcessor" type="Magento\Eav\Model\Api\SearchCriteria\CollectionProcessor\FilterProcessor">
+        <arguments>
+            <argument name="customFilters" xsi:type="array">
+                <!-- Existing filters from CatalogGraphQl module -->
+                <item name="price" xsi:type="object">Magento\Catalog\Model\Api\SearchCriteria\CollectionProcessor\FilterProcessor\ProductPriceFilter</item>
+                <item name="min_price" xsi:type="object">Magento\Catalog\Model\Api\SearchCriteria\CollectionProcessor\FilterProcessor\ProductPriceFilter</item>
+                <item name="max_price" xsi:type="object">Magento\Catalog\Model\Api\SearchCriteria\CollectionProcessor\FilterProcessor\ProductPriceFilter</item>
+                <item name="category_id" xsi:type="object">Magento\CatalogGraphQl\Model\Resolver\Products\SearchCriteria\CollectionProcessor\FilterProcessor\CategoryFilter</item>
+                <!-- Our custom stock_status filter -->
+                <item name="stock_status" xsi:type="object">Mage2AU\GraphQLStockFilter\Model\Resolver\Products\SearchCriteria\CollectionProcessor\FilterProcessor\StockStatusFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Plugin to preserve stock_status filter in ProductCollectionSearchCriteriaBuilder -->
+    <type name="Magento\CatalogGraphQl\Model\Resolver\Products\DataProvider\ProductSearch\ProductCollectionSearchCriteriaBuilder">
+        <plugin name="preserve_stock_status_filter" type="Mage2AU\GraphQLStockFilter\Plugin\ProductCollectionSearchCriteriaBuilderPlugin" />
+    </type>
+
+</config>

@@ -1,0 +1,6 @@
+# Copyright © Mage2AU. All rights reserved.
+# GraphQL Stock Filter Schema Extension
+
+extend input ProductAttributeFilterInput {
+    stock_status: FilterEqualTypeInput @doc(description: "Filter by stock status (IN_STOCK or OUT_OF_STOCK)")
+}

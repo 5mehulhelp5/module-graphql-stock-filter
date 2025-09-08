@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mage2AU GraphQL Stock Filter Module
+ * Module Declaration
+ * 
+ * @category    Mage2AU
+ * @package     Mage2AU_GraphQLStockFilter
+ * @author      Mage2AU
+ * @copyright   Copyright (c) 2025 Mage2AU
+ * @license     MIT License
+ * @version     1.0.0
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Mage2AU_GraphQLStockFilter">
+        <sequence>
+            <module name="Magento_CatalogGraphQl"/>
+            <module name="Magento_CatalogInventory"/>
+            <module name="Magento_CatalogInventoryGraphQl"/>
+        </sequence>
+    </module>
+</config>

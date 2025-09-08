@@ -1,0 +1,39 @@
+{
+    "name": "mage2au/module-graphql-stock-filter",
+    "description": "Adds stock_status filter support to Magento 2 GraphQL product queries for single-stock sites",
+    "type": "magento2-module",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Mage2AU",
+            "email": "info@mage2.com.au",
+            "homepage": "https://www.mage2.com.au/"
+        }
+    ],
+    "keywords": [
+        "magento2",
+        "graphql",
+        "stock",
+        "filter",
+        "inventory"
+    ],
+    "require": {
+        "php": "^8.1",
+        "magento/framework": "^103.0",
+        "magento/module-catalog": "^104.0",
+        "magento/module-catalog-graph-ql": "^100.4",
+        "magento/module-catalog-inventory": "^100.4",
+        "magento/module-catalog-inventory-graph-ql": "^100.4",
+        "magento/module-eav": "^102.1",
+        "magento/module-store": "^101.1"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mage2AU\\GraphQLStockFilter\\": ""
+        }
+    }
+}
