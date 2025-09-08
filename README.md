@@ -11,7 +11,7 @@ A Magento 2 plugin that adds support for stock status filtering in GraphQL produ
 - **Error Handling**: Robust error handling with logging for debugging
 - **Magento Standards**: Built following Magento 2 coding standards and best practices
 
-## 🚀 Installation
+## Installation
 
 ### Via Composer (Recommended)
 
@@ -36,7 +36,7 @@ php bin/magento setup:di:compile
 php bin/magento cache:flush
 ```
 
-## 📖 Usage
+## Usage
 
 ### Basic GraphQL Query
 
