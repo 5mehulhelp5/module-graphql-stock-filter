@@ -127,3 +127,7 @@ curl -X POST "https://your-magento-site.com/graphql" \
     "query": "query { products(filter: { stock_status: { eq: \"IN_STOCK\" } }) { items { sku name stock_status } } }"
   }'
 ```
+
+### Note
+"Display Out of Stock Products" should be set to "Yes" for filtering to work. 
+Go to Stores > Configuration > Catalog > Inventory > Display Out of Stock Products
